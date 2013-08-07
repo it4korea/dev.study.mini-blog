@@ -14,7 +14,6 @@
 
 body {
     padding: 50px 40px;
-
 }
 
 .stub-header h1{
@@ -25,4 +24,15 @@ body {
     padding-top: 10px;
     font-size: 30px;
     line-height: 1.3em;
+}
+
+.stub-header li{
+    padding-top: 10px;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+.stub-header li strong{
+    font-size: 35px;
+    color: green;    
 }
