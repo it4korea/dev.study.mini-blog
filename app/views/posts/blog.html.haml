@@ -1,0 +1,22 @@
+.row
+  - @posts.each do |post|
+    .container.post
+      .col-lg-9.post-main
+        %h1.title= post.title
+        %p.entry= post.entry
+      .col-lg-3.post-info
+        .post-info-item
+          %strong Date
+          %br/
+          = post.created_at
+        .post-info-item
+          %strong Writer
+          %br/
+          = post.user.email
+        .post-info-item
+          %a{href: edit_post_path(post)}
+            %button.btn.btn-info{type: "button"} Edit post
+          %a{href: post_path(post), "data-confirm" => "Are you sure?", "data-method" => "delete"}
+            %button.btn.btn-danger{type: "button"} Delete post
+
+

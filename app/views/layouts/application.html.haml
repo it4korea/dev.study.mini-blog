@@ -10,9 +10,11 @@
       %a.navbar-brand{href: "/"} Stub
       %ul.nav.navbar-nav
         %li 
-          %a{href: "/posts"} posts
+          = link_to "posts", posts_path
+        %li
+          = link_to "blogs", posts_blog_path
         %li 
-          %a{href: "/about"} about
+          = link_to "about", about_path
       - unless user_signed_in?
         = simple_form_for resource, :as => resource_name, :url => session_path(resource_name), html: { class: "navbar-form pull-right"} do |f|
           = f.input :email, wrapper: false, label: false, input_html: {style: "width: 200px;", placeholder: "ID"}
@@ -20,12 +22,15 @@
           = f.submit "Sign in", class: "btn btn-default navbar-btn"
       - else
         .pull-right
-          %button.btn.btn-default.navbar-btn.pull-right{type: "button"} Sign out
+          %a{href: destroy_user_session_path, "data-method" => "delete"}
+            %button.btn.btn-danger.navbar-btn.pull-right{type: "button", style: "margin-left: 10px;"} Sign out
+          %a{href: new_post_path}
+            %button.btn.btn-primary.navbar-btn.pull-right{type: "button"} New post
           %ul.nav.navbar-nav.pull-right
             %li         
               %a{href: "#"}= "Hello, #{current_user.email}"
 
 
         
-      
     = yield
+

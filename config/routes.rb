@@ -2,6 +2,8 @@ Stub::Application.routes.draw do
   root "main#index"
   get 'about' => "main#about"
 
+  get 'posts/blog'
+
   resources :posts do
     resources :comments
   end

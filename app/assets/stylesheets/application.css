@@ -36,3 +36,38 @@ body {
     font-size: 35px;
     color: green;    
 }
+
+.post{
+    margin-top: 20px;
+}
+
+.posts-table-email{
+    width: 15%;
+}
+
+.posts-table-title{
+    width: 20%;
+}
+
+.posts-table-entry{
+    width: 55%;
+}
+
+.posts-table-edit{
+    width: 5%;
+}
+
+.post-info{
+    padding: 30px;
+}
+
+.post-info-item{
+    padding: 5px;
+}
+
+.post-main .entry{
+    text-align: justify;
+}
+
+.post-main .title{
+}

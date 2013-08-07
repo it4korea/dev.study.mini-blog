@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
+    #@posts = Post.all.page(params[:page]).per(1)
     @posts = Post.all
   end
 
@@ -45,6 +46,10 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
+  def blog
+    @posts = Post.all.page(params[:page]).per(15)
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

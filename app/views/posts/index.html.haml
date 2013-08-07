@@ -1,23 +1,27 @@
-%h1 Listing posts
+.row
+  .col-lg-12
+    %h1 Listing posts
+    
+    %br/
 
-%table
-  %tr
-    %th User
-    %th Title
-    %th Entry
-    %th
-    %th
-    %th
+    %table.table.table-striped
+      %tr
+        %th User
+        %th Title
+        %th Entry
+        %th
+        %th
+        %th
 
-  - @posts.each do |post|
-    %tr
-      %td= post.user_id
-      %td= post.title
-      %td= post.entry
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - @posts.each do |post|
+        %tr
+          %td.posts-table-email= post.user.email
+          %td.posts-table-title= link_to post.title, post
+          %td.posts-table-entry 
+            = post.entry[0..50]
+            = "..."
+          %td.posts-table-edit= link_to 'Edit', edit_post_path(post)
+          %td.posts-table-edit= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Post', new_post_path
+    %br
+    -#.text-center= paginate @posts
