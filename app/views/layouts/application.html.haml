@@ -6,4 +6,28 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+    .navbar.navbar-fixed-top
+      %a.navbar-brand{href: "#"} Stub
+      %ul.nav.navbar-nav
+        %li 
+          %a Home
+        %li 
+          %a Link
+        %li 
+          %a Link
+      - unless user_signed_in?
+        = simple_form_for resource, :as => resource_name, :url => session_path(resource_name), html: { class: "navbar-form pull-right"} do |f|
+          = f.input :email, wrapper: false, label: false, input_html: {style: "width: 200px;", placeholder: "ID"}
+          = f.input :password, wrapper: false, label: false, input_html: {style: "width: 200px;", placeholder: "Password"}
+          = f.submit "Sign in", class: "btn btn-default navbar-btn"
+      - else
+        .pull-right
+          %button.btn.btn-default.navbar-btn.pull-right{type: "button"} Sign out
+          %ul.nav.navbar-nav.pull-right
+            %li         
+              %a{href: "#"}= "Hello, #{current_user.email}"
+
+
+        
+      
     = yield
