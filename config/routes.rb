@@ -1,9 +1,10 @@
 Stub::Application.routes.draw do
   root "main#index"
   get 'about' => "main#about"
-  resources :comments
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users
