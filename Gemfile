@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 
-# database
-gem 'sqlite3'
-gem 'pg'
-
 gem 'rails_admin', github: "sferik/rails_admin", branch: "rails-4"
 
 # javascript
@@ -26,7 +22,13 @@ gem 'draper'
 # third-party
 gem 'pry'
 
+group :production do
+  # database
+  gem 'pg'
+end
+
 group  :development do
+  gem 'sqlite3'
   gem 'erb2haml'
   gem 'rspec-rails'
   gem 'ruby_gntp'
