@@ -7,24 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-puts 'CREATING ROLES'
-Role.create([
-             { :name => 'admin' }, 
-             { :name => 'user' }, 
-            ], :without_protection => true)
+puts 'CREATING Role'
 
 puts 'SETTING UP DEFAULT USER LOGIN'
 
-admin = User.create!(:email => 'admin@example.com',
+admin = User.create!(:email => 'admin@stub.lapisan',
                      :password => 'abcd1234',
                      :password_confirmation => 'abcd1234'
                      )
 puts 'New user created: ' << admin.email
 
-user = User.create!(:email => 'user@example.com',
+user = User.create!(:email => 'user@sutb.lapisan',
                     :password => 'abcd1234',
                     :password_confirmation => 'abcd1234'
                     )
 
 puts 'New user created: ' << user.email
-admin.add_role :admin
+
