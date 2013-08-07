@@ -44,11 +44,12 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    #redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to :back
   end
 
   def blog
-    @posts = Post.all.page(params[:page]).per(15)
+    @posts = Post.all.order("updated_at DESC").page(params[:page]).per(15)
     @comment = Comment.new
   end
   

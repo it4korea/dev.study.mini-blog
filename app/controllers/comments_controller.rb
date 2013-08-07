@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1
   def show
+    
   end
 
   # GET /comments/new
@@ -25,7 +26,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       #redirect_to @comment, notice: 'Comment was successfully created.'
-      redirect_to :back
+      redirect_to Post.find(params[:post_id])
     else
       render action: 'new'
     end

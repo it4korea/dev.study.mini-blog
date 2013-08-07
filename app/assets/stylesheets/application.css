@@ -39,6 +39,7 @@ body {
 
 .post{
     margin-top: 20px;
+    margin-bottom: 80px;
 }
 
 .posts-table-email{
@@ -70,6 +71,8 @@ body {
 }
 
 .post-main .title{
+    margin-bottom: 25px;
+
 }
 
 .post-main .comment-button{

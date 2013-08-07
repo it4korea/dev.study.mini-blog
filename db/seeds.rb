@@ -17,10 +17,12 @@ admin = User.create!(:email => 'admin@stub.lapisan',
                      )
 puts 'New user created: ' << admin.email
 
-user = User.create!(:email => 'user@sutb.lapisan',
+user = User.create!(:email => 'user@stub.lapisan',
                     :password => 'abcd1234',
                     :password_confirmation => 'abcd1234'
                     )
 
 puts 'New user created: ' << user.email
+
+
 
