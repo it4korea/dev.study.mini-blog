@@ -15,8 +15,9 @@
           = link_to "Blogs", posts_blog_path
         %li 
           = link_to "About", about_path
-        %li 
-          = link_to "Admin", rails_admin_path
+        - if user_signed_in?
+          %li 
+            = link_to "Admin", rails_admin_path
       - unless user_signed_in?
         = simple_form_for resource, :as => resource_name, :url => session_path(resource_name), html: { class: "navbar-form pull-right"} do |f|
           = f.input :email, wrapper: false, label: false, input_html: {style: "width: 200px;", placeholder: "ID", value: "admin@stub.lapisan"}

@@ -25,7 +25,10 @@ user = User.create!(:email => 'user@stub.lapisan',
 puts 'New user created: ' << user.email
 
 100.times do
-  Post.create!(title: Faker::Lorem.sentence(3)
-               entry: Faker::Lorem.paragraph(5)
+  Post.create!(title: Faker::Lorem.sentence(3),
+               entry: Faker::Lorem.paragraph(50),
+               user_id: rand(2) + 1
                )
 end
+
+puts '100 post created'
