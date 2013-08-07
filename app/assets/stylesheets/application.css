@@ -71,3 +71,11 @@ body {
 
 .post-main .title{
 }
+
+.post-main .comment-button{
+    margin-top: 15px;
+}
+
+.post-main .comment-entry{
+    margin-top: 25px;
+}

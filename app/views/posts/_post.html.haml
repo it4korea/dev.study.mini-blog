@@ -1,0 +1,31 @@
+.container.post
+  .col-lg-9.post-main
+    %h1.title= post.title
+    %p.entry= post.entry
+    - post.comments.each do |comment|
+      = comment.user.email
+      = comment.entry
+      %br/
+    - if user_signed_in?
+      = simple_form_for @comment, url: post_comments_path(post_id: post.id) do |f|
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :post_id, value: post.id
+        %fieldset
+          .form-group
+            = f.input :entry, label: false, input_html: { placeholder: "Comment.", class: "form-control comment-entry" }
+            = f.button :submit, class: "btn btn-info comment-button"
+
+  .col-lg-3.post-info
+    .post-info-item
+      %strong Date
+      %br/
+      = post.created_at
+    .post-info-item
+      %strong Writer
+      %br/
+      = post.user.email
+    .post-info-item
+      %a{href: edit_post_path(post)}
+        %button.btn.btn-info{type: "button"} Edit post
+      %a{href: post_path(post), "data-confirm" => "Are you sure?", "data-method" => "delete"}
+        %button.btn.btn-danger{type: "button"} Delete post

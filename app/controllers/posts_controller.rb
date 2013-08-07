@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @comment = Comment.new
   end
 
   # GET /posts/new
@@ -48,6 +49,7 @@ class PostsController < ApplicationController
 
   def blog
     @posts = Post.all.page(params[:page]).per(15)
+    @comment = Comment.new
   end
   
   private
