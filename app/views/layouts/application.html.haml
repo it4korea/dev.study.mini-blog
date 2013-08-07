@@ -7,14 +7,12 @@
     = csrf_meta_tags
   %body
     .navbar.navbar-fixed-top
-      %a.navbar-brand{href: "#"} Stub
+      %a.navbar-brand{href: "/"} Stub
       %ul.nav.navbar-nav
         %li 
-          %a Home
+          %a{href: "/posts"} posts
         %li 
-          %a Link
-        %li 
-          %a Link
+          %a{href: "/about"} about
       - unless user_signed_in?
         = simple_form_for resource, :as => resource_name, :url => session_path(resource_name), html: { class: "navbar-form pull-right"} do |f|
           = f.input :email, wrapper: false, label: false, input_html: {style: "width: 200px;", placeholder: "ID"}
