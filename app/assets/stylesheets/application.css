@@ -14,4 +14,15 @@
 
 body {
     padding: 50px 40px;
+
+}
+
+.stub-header h1{
+    font-size: 72px;
+}
+
+.stub-header p{
+    padding-top: 10px;
+    font-size: 30px;
+    line-height: 1.3em;
 }
