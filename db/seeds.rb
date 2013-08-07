@@ -24,5 +24,8 @@ user = User.create!(:email => 'user@stub.lapisan',
 
 puts 'New user created: ' << user.email
 
-
-
+30.times do
+  Post.create!(title:
+               entry:
+               )
+end

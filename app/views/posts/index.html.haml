@@ -20,8 +20,12 @@
           %td.posts-table-entry 
             = post.entry[0..50]
             = "..."
-          %td.posts-table-edit= link_to 'Edit', edit_post_path(post)
-          %td.posts-table-edit= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - if post.user.id == (current_user ? current_user.id : 0)
+            %td.posts-table-edit= link_to 'Edit', edit_post_path(post)
+            %td.posts-table-edit= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - else
+            %td.posts-table-edit
+            %td.posts-table-edit            
 
     %br
     -#.text-center= paginate @posts

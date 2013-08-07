@@ -1,7 +1,7 @@
 .container.post
   .col-lg-9.post-main
     .title
-      %h1= post.title
+      %h1= link_to post.title, post_path(post)
     %p.entry= post.entry
     - post.comments.each do |comment|
       %strong= comment.user.email
@@ -28,7 +28,7 @@
       %strong Writer
       %br/
       = post.user.email
-    - if post.user.email == (current_user ? current_user.email : "")
+    - if post.user.id == (current_user ? current_user.id : "")
       .post-info-item
         %a{href: edit_post_path(post)}
           %button.btn.btn-info{type: "button"} Edit post

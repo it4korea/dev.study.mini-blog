@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :ownership, only: [:edit, :update, :destroy]
+  
   # GET /posts
   def index
     #@posts = Post.all.page(params[:page]).per(1)
@@ -62,5 +63,9 @@ class PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:user_id, :title, :entry)
+    end
+
+    def ownership
+      redirect_to root_path if Post.find(params[:id]).user.id != current_user.id
     end
 end
